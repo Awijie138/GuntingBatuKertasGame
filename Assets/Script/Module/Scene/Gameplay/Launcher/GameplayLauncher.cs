@@ -4,13 +4,12 @@ using Game.Boot;
 using System.Collections;
 using UnityEngine;
 
-namespace Game.Scene.Menu
+namespace Game.Scene.Gameplay
 {
-    public class MenuLauncher : SceneLauncher<MenuLauncher, MenuView>
+    public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
     {
-
         [SerializeField]
-        protected MenuView _menuView;
+        protected GameplayView _gameplayView;
 
         protected override IConnector[] GetSceneConnectors()
         {
@@ -22,19 +21,20 @@ namespace Game.Scene.Menu
 
         protected override IController[] GetSceneDependencies()
         {
-            return new IController[]{
+            return new IController[]
+            {
 
             };
         }
 
         protected override string GetSceneName()
         {
-            return "Menu";
+            return "Gameplay";
         }
 
-        protected override MenuView GetSceneView()
+        protected override GameplayView GetSceneView()
         {
-            return _menuView;
+            return _gameplayView;
         }
 
         protected override IEnumerator InitSceneObject()

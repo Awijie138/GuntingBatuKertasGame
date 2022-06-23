@@ -2,7 +2,9 @@ using Agate.MVC.Base;
 using Agate.MVC.Core;
 using Game.Boot;
 using Game.Module.PlayGame;
-using Game.Utilty;
+using Game.Module.Output;
+using Game.Module.OpponentInput;
+using Game.Utility;
 using System.Collections;
 using UnityEngine;
 
@@ -14,6 +16,9 @@ namespace Game.Scene.GamePlay
         private GamePlayView _gamePlayView;
 
         private PlayGameController _playGame;
+        private OutputController _output;
+
+        private OpponentInputController _opponentInput;
 
 
         protected override IConnector[] GetSceneConnectors()
@@ -28,7 +33,9 @@ namespace Game.Scene.GamePlay
         {
             return new IController[]
             {
-                new PlayGameController()
+                new PlayGameController(),
+                new OutputController(),
+                new OpponentInputController()
             };
         }
 

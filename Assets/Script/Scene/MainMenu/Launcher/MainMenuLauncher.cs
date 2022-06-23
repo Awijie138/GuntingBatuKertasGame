@@ -2,7 +2,7 @@ using Agate.MVC.Base;
 using Agate.MVC.Core;
 using Game.Boot;
 using Game.Module.Menu;
-using Game.Utilty;
+using Game.Utility;
 using System.Collections;
 using UnityEngine;
 

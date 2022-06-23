@@ -1,7 +1,7 @@
 
 using Agate.MVC.Base;
 using Game.Boot;
-using Game.Utilty;
+using Game.Utility;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

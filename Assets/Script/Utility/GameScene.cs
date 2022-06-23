@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Utilty
+namespace Game.Utility
 {
     public static class GameScene
     {

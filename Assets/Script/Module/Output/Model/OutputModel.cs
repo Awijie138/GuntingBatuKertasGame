@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using Game.Utility;
 using UnityEngine;
 
 namespace Game.Module.Output
@@ -39,41 +40,41 @@ namespace Game.Module.Output
             opponentInput = source;
         }
 
-        public string Process(string playerinput, string opponentInput)
+        public void Process()
         {
-            switch ((playerinput, opponentInput))
+            switch ((playerInput, opponentInput))
             {
-                case ("Gunting", "Gunting"):
+                case (ContsGBK.gunting, ContsGBK.gunting):
                     result = "Draw";
                     break;
 
-                case ("Gunting", "Batu"):
+                case (ContsGBK.gunting, ContsGBK.batu):
                     result = "Lose";
                     break;
 
-                case ("Gunting", "Kertas"):
+                case (ContsGBK.gunting, ContsGBK.kertas):
                     result = "Win";
                     break;
 
-                case ("Batu", "Gunting"):
+                case (ContsGBK.batu, ContsGBK.gunting):
                     result = "Win";
                     break;
-                case ("Batu", "Batu"):
+                case (ContsGBK.batu, ContsGBK.batu):
                     result = "Draw";
                     break;
 
-                case ("Batu", "Kertas"):
+                case (ContsGBK.batu, ContsGBK.kertas):
                     result = "Lose";
                     break;
 
-                case ("Kertas", "Gunting"):
+                case (ContsGBK.kertas, ContsGBK.gunting):
                     result = "Win";
                     break;
 
-                case ("Kertas", "Batu"):
+                case (ContsGBK.kertas, ContsGBK.batu):
                     result = "Lose";
                     break;
-                case ("Kertas", "Kertas"):
+                case (ContsGBK.kertas, ContsGBK.kertas):
                     result = "Draw";
                     break;
 
@@ -81,7 +82,6 @@ namespace Game.Module.Output
                     result = "Error";
                     break;
             }
-            return result;
         }
     }
 }

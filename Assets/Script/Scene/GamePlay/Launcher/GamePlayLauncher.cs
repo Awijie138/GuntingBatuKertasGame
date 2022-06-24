@@ -4,6 +4,8 @@ using Game.Boot;
 using Game.Module.PlayGame;
 using Game.Module.Output;
 using Game.Module.OpponentInput;
+using Game.Module.Score;
+using Game.Module.ScoreAudio;
 using Game.Utility;
 using System.Collections;
 using UnityEngine;
@@ -14,18 +16,15 @@ namespace Game.Scene.GamePlay
     {
         [SerializeField]
         private GamePlayView _gamePlayView;
-
         private PlayGameController _playGame;
-        private OutputController _output;
-
-        private OpponentInputController _opponentInput;
+        private ScoreController _score;
 
 
         protected override IConnector[] GetSceneConnectors()
         {
             return new IConnector[]
             {
-
+                new AddScoreAudioConnector()
             };
         }
 
@@ -35,7 +34,9 @@ namespace Game.Scene.GamePlay
             {
                 new PlayGameController(),
                 new OutputController(),
-                new OpponentInputController()
+                new OpponentInputController(),
+                new ScoreController(),
+                new AddScoreAudioController()
             };
         }
 
@@ -51,7 +52,8 @@ namespace Game.Scene.GamePlay
 
         protected override IEnumerator InitSceneObject()
         {
-            _playGame.SetView(_gamePlayView.PlayGameView);
+            _playGame.SetView(_view.PlayGameView);
+            _score.SetView(_view.ScoreView);
             yield return null;
         }
 

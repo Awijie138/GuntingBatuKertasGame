@@ -1,8 +1,9 @@
 using Agate.MVC.Base;
 using Game.Module.OpponentInput;
 using Game.Module.Output;
+using Game.Module.Score;
 using Game.Utility;
-using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game.Module.PlayGame
 {
@@ -11,12 +12,18 @@ namespace Game.Module.PlayGame
 
         private OpponentInputController _opponentInput;
         private OutputController _output;
+        private ScoreController _score;
 
 
         public override void SetView(PlayGameView view)
         {
             base.SetView(view);
-            view.Init(ChooseGunting, ChooseBatu, ChooseKertas, SendEvent);
+            view.Init(Menu, ChooseGunting, ChooseBatu, ChooseKertas, SendEvent);
+        }
+
+        public void Menu()
+        {
+            SceneManager.LoadScene(GameScene.MainMenu, LoadSceneMode.Additive);
         }
 
         public void ChooseGunting()
@@ -40,6 +47,7 @@ namespace Game.Module.PlayGame
         {
             GetOpponentResult();
             GetResult();
+            _score.SetScoreData(_model.result);
         }
 
         public void GetOpponentResult()

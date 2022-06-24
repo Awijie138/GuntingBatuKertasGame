@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using Game.Module.PlayGame;
+using Game.Module.Score;
 using UnityEngine;
 
 
@@ -9,6 +10,9 @@ namespace Game.Scene.GamePlay
     {
         [SerializeField]
         public PlayGameView PlayGameView;
+
+        [SerializeField]
+        public ScoreView ScoreView;
 
     }
 }

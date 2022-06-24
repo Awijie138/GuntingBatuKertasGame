@@ -9,14 +9,16 @@ namespace Game.Module.PlayGame
     public class PlayGameView : ObjectView<IPlayGameModel>
     {
         [SerializeField]
-        private Button _guntingButton, _batuButton, _kertasButton, _okButton;
+        private Button _menuButton, _guntingButton, _batuButton, _kertasButton, _okButton;
 
         [SerializeField]
         private Text _playerInput, _opponentInput, _result;
 
 
-        public void Init(UnityAction chooseGunting, UnityAction chooseBatu, UnityAction chooseKertas, UnityAction sendEvent)
+        public void Init(UnityAction menu, UnityAction chooseGunting, UnityAction chooseBatu, UnityAction chooseKertas, UnityAction sendEvent)
         {
+            _menuButton.onClick.RemoveAllListeners();
+            _menuButton.onClick.AddListener(menu);
             _guntingButton.onClick.RemoveAllListeners();
             _guntingButton.onClick.AddListener(chooseGunting);
             _batuButton.onClick.RemoveAllListeners();
